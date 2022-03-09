@@ -9,6 +9,7 @@ token = jsonObject['token']
 prefix = jsonObject['prefix']
 channelId = jsonObject['channelId']
 userId = jsonObject['userId']
+url =  f"https://discord.com/api/v9/channels/{channelId}/messages"
 argument = sys.argv[1]
 green = Fore.GREEN
 reset = Fore.RESET
@@ -55,7 +56,7 @@ $$$$$$$$/  $$$$$$$/  $$$$$$/  $$/   $$/  $$$$$$/  $$/  $$/  $$/  $$$$$$$ |      
     """)
 
 if argument == "usage":
-    print(f"{green}Usage: python es.py <method>")
+    print(f"{green}Usage: python app.py <method>")
     exit()
 elif argument == "methods":
     print(f"""{green}List of methods you can use:
@@ -63,29 +64,34 @@ elif argument == "methods":
     1. collect
     2. givemoney
     3. withall
+    4. depall
     {reset}""")
     exit()
 elif argument == "collect":
     collectData = {
         "content": f"{prefix}collect" 
     }
-    collectRequestUrl =  f"https://discord.com/api/v9/channels/{channelId}/messages"
-    collectRequest = requests.post(url=collectRequestUrl, headers={"authorization":f"{token}", "content-type": "application/json"}, json=collectData)
+    collectRequest = requests.post(url=url, headers={"authorization":f"{token}", "content-type": "application/json"}, json=collectData)
     print(f"{green}Have a nice day :){reset}")
     exit()
 elif argument == "givemoney":
     giveMoneyData = {
         "content": f"{prefix}give <@{userId}> all" 
     }
-    giveMoneyRequestUrl =  f"https://discord.com/api/v9/channels/{channelId}/messages"
-    giveMoneyRequest = requests.post(url=giveMoneyRequestUrl, headers={"authorization":f"{token}", "content-type": "application/json"}, json=giveMoneyData)
+    giveMoneyRequest = requests.post(url=url, headers={"authorization":f"{token}", "content-type": "application/json"}, json=giveMoneyData)
     print(f"{green}Have a nice day :){reset}")
     exit()
 elif argument == "withall":
     withallData = {
         "content": f"{prefix}with all" 
     }
-    withallRequestUrl =  f"https://discord.com/api/v9/channels/{channelId}/messages"
-    withallRequest = requests.post(url=withallRequestUrl, headers={"authorization":f"{token}", "content-type": "application/json"}, json=withallData)
+    withallRequest = requests.post(url=url, headers={"authorization":f"{token}", "content-type": "application/json"}, json=withallData)
+    print(f"{green}Have a nice day :){reset}")
+    exit()
+elif argument == "depall":
+    depallData = {
+        "content": f"{prefix}dep all" 
+    }
+    depallRequest = requests.post(url=url, headers={"authorization":f"{token}", "content-type": "application/json"}, json=depallData)
     print(f"{green}Have a nice day :){reset}")
     exit()
