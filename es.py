@@ -1,4 +1,3 @@
-from urllib.parse import uses_relative
 import requests, json, sys, os
 from colorama import Fore
 
