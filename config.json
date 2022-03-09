@@ -1,0 +1,6 @@
+{
+    "token": "Put account token here",
+    "prefix": "Put bots prefix in here",
+    "channelId": "Economy channel id",
+    "userId": "user id if you want to send money to yourself or to someone else"
+}
